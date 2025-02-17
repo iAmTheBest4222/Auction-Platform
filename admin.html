@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Auction Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="admin.html">Admin Dashboard</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="admin-grid">
+            <section class="admin-stats">
+                <h2>Platform Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Users</h3>
+                        <p class="stat-number">1,234</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Auctions</h3>
+                        <p class="stat-number">89</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <p class="stat-number">$45,670</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="user-management">
+                <h2>User Management</h2>
+                <div class="admin-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>john_doe</td>
+                                <td>Seller</td>
+                                <td>Active</td>
+                                <td>
+                                    <button class="button small">Suspend</button>
+                                    <button class="button small danger">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- More user rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="dispute-management">
+                <h2>Active Disputes</h2>
+                <div class="dispute-list">
+                    <div class="dispute-card">
+                        <h3>Dispute #1234</h3>
+                        <p>Buyer: user123</p>
+                        <p>Seller: seller456</p>
+                        <p>Item: Vintage Watch</p>
+                        <p>Status: Pending Review</p>
+                        <button class="button">Review Dispute</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html> 

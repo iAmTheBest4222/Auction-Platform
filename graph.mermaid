@@ -1,0 +1,59 @@
+graph TD
+    Start[User Visits Website] --> Auth{Authenticated?}
+    
+    Auth -->|No| Choice{Choose Action}
+    Choice -->|Login| Login[Login Page]
+    Choice -->|Register| Register[Registration Page]
+    
+    Register -->|Fill Form| UserType{Select Role}
+    UserType -->|Buyer| CreateAccount[Create Account]
+    UserType -->|Seller| CreateAccount
+    UserType -->|Both| CreateAccount
+    
+    Login --> Authenticate{Valid Credentials?}
+    Authenticate -->|No| Login
+    
+    Auth -->|Yes| Dashboard[User Dashboard]
+    CreateAccount --> Dashboard
+    Authenticate -->|Yes| Dashboard
+    
+    Dashboard --> UserRole{User Role}
+    
+    UserRole -->|Buyer| BuyerActions[Buyer Dashboard]
+    UserRole -->|Seller| SellerActions[Seller Dashboard]
+    UserRole -->|Admin| AdminActions[Admin Dashboard]
+    
+    BuyerActions --> Browse[Browse Auctions]
+    Browse --> Filter[Apply Filters]
+    Filter --> ViewItem[View Item Details]
+    ViewItem --> Bid{Place Bid?}
+    
+    Bid -->|Yes| CheckPrice{Sufficient Funds?}
+    CheckPrice -->|Yes| PlaceBid[Place Bid]
+    CheckPrice -->|No| AddFunds[Add Funds]
+    Bid -->|No| AddWatchlist[Add to Watchlist]
+    
+    PlaceBid --> WaitEnd[Wait for Auction End]
+    WaitEnd --> Winner{Won Auction?}
+    Winner -->|Yes| Payment[Process Payment]
+    Winner -->|No| Notification[Outbid Notification]
+    
+    SellerActions --> ListItem[List New Item]
+    ListItem --> ItemDetails[Add Item Details]
+    ItemDetails --> SetAuction[Set Auction Parameters]
+    SetAuction --> Publish[Publish Listing]
+    
+    AdminActions --> Monitor[Monitor Platform]
+    Monitor --> ManageUsers[Manage Users]
+    Monitor --> ManageAuctions[Manage Auctions]
+    Monitor --> HandleDisputes[Handle Disputes]
+    
+    Payment --> Escrow[Hold in Escrow]
+    Escrow --> Delivery[Item Delivery]
+    Delivery --> Confirm{Buyer Confirms?}
+    Confirm -->|Yes| Release[Release Payment]
+    Confirm -->|No| Dispute[Open Dispute]
+    
+    Dispute --> HandleDisputes
+
+%% https://www.mermaidchart.com/app/projects/f8c8e31a-61bd-430a-be8d-6a66c3702b97/diagrams/7fd92e96-19e4-414b-8853-0254851e2e50/version/v0.1/edit
