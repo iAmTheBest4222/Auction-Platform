@@ -30,7 +30,7 @@ interface Item {
 const Shop: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [bidAmounts, setBidAmounts] = useState<{ [key: string]: string }>({});
-  const [error, setError] = useState('');
+  const [error] = useState<string>('');
   const [bidErrors, setBidErrors] = useState<{ [key: string]: string }>({});
   const [sellErrors, setSellErrors] = useState<{ [key: string]: string }>({});
   const { currentUser } = useAuth();
@@ -387,4 +387,4 @@ const Shop: React.FC = () => {
   );
 };
 
-export default Shop; 
+export default Shop;
