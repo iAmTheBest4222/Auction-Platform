@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Navbar from './components/Navbar';
+import AIAssistant from './components/AIAssistant';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Profile from './pages/Profile';
@@ -38,6 +39,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
           </Routes>
+          <AIAssistant />
         </Router>
       </AuthProvider>
     </ThemeProvider>
