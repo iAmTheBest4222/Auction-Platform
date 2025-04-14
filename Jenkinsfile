@@ -17,20 +17,6 @@ pipeline {
             }
         }
         
-        stage('Fix ESLint Errors') {
-            steps {
-                dir('.') {
-                    // Remove unused imports and variables
-                    bat '''
-                        (Get-Content src\\pages\\AddItem.tsx) -replace "const response = await", "await" | Set-Content src\\pages\\AddItem.tsx
-                        (Get-Content src\\pages\\Login.tsx) -replace "import.*Typography.*", "" | Set-Content src\\pages\\Login.tsx
-                        (Get-Content src\\pages\\Profile.tsx) -replace "import.*Button.*", "" | Set-Content src\\pages\\Profile.tsx
-                        (Get-Content src\\pages\\Shop.tsx) -replace "const \\[error, setError\\] = useState", "const \\[error\\] = useState" | Set-Content src\\pages\\Shop.tsx
-                    '''
-                }
-            }
-        }
-        
         stage('Build Frontend') {
             steps {
                 dir('.') {
@@ -40,11 +26,10 @@ pipeline {
             }
         }
         
-        stage('Build Backend') {
+        stage('Install Backend Dependencies') {
             steps {
                 dir('server') {
                     bat 'npm install'
-                    bat 'npm run build'
                 }
             }
         }
@@ -52,7 +37,6 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 script {
-                    // Check if Docker is available
                     def dockerAvailable = false
                     try {
                         def dockerVersion = bat(script: 'docker --version', returnStdout: true).trim()
@@ -64,7 +48,7 @@ pipeline {
                     
                     if (dockerAvailable) {
                         try {
-                            // Build backend first
+                            // Build backend
                             dir('server') {
                                 bat 'docker build -t auction-platform-backend .'
                             }
@@ -98,7 +82,6 @@ pipeline {
     
     post {
         always {
-            // Clean up workspace
             cleanWs()
         }
         success {
@@ -108,4 +91,4 @@ pipeline {
             echo 'Pipeline completed with some issues. Check the logs for details.'
         }
     }
-} 
+}
