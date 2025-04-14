@@ -43,7 +43,7 @@ Auction-Platform/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/Auction-Platform.git
+git clone https://github.com/iAmTheBest4222/Auction-Platform.git
 cd Auction-Platform
 ```
 
@@ -134,5 +134,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-Your Name - your.email@example.com
-Project Link: https://github.com/yourusername/Auction-Platform
+Your Name - keshumishra987@gmail.com
+Project Link: https://github.com/iAmTheBest4222/Auction-Platform
