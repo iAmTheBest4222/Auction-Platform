@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Button,
   Tabs,
   Tab,
   Stack,
@@ -236,4 +237,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default Profile;
+export default Profile; 

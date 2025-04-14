@@ -51,7 +51,7 @@ const AddItem: React.FC = () => {
         throw new Error('Please provide an end time');
       }
 
-      await axios.post('http://localhost:5001/api/items', {
+      const response = await axios.post('http://localhost:5001/api/items', {
         title,
         description,
         imageUrl,
