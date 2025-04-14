@@ -2,7 +2,9 @@
 
 A modern online auction platform built with React, TypeScript, Node.js, Express, and MongoDB. The platform allows users to buy and sell items through an auction system.
 
-## Project Structure
+## Project 
+
+
 
 ```
 Auction-Platform/
